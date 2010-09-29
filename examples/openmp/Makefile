@@ -3,5 +3,5 @@ LIBS=-lpthread -lgomp
 
 all: basic
 
-cpi: basic.c
+basic: basic.c
 	$(CC) -o $@ basic.c $(LIBS)

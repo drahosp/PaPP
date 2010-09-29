@@ -1,0 +1,26 @@
+Package for Parallel Programming Courses
+=====
+
+A stripped down MinGW based distribution of the gcc compiler and related libraries. The purpose of this package is to provide a self-updating windows distribution for practical teaching parallel programing. A series of basic examles of using various programming APIs is included.
+
+Package contains the following:
+	ToolChain:
+		- binutils 2.20.51 (MinGW)
+		- mingwrt 3.18 (MinGW)
+		- gcc-core 4.5.0-1 (MinGW)
+			- gcc-c++ 4.5.0-1 (MinGW)
+			- gmp 5.0.1 (MinGW)
+			- gomp 4.5.0-1 (MinGW)
+			- mpc 0.8.1-1 (MinGW)
+			- mpfr 2.4.1-1 (MinGW)
+			- pthread 2.8.0-3 (MinGW)
+			- ssp 4.5.0-1 (MinGW)
+		- make 3.82-3 (MinGW) With a "make" wrapper command for mingw32-make
+		- gdb 7.2-1 (MinGW)
+		- git-core 1.7.2.3 (msysgit) cut down to work with http only (no opensh)
+		- w32api 3.15-1 (MinGW)
+		- freeglut 2.6.0
+		- glew 1.5.6
+		- mpich2 
+	Applications:
+		- CodeBlocks
