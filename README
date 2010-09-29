@@ -21,7 +21,15 @@ Package contains the following:
 		- w32api 3.15-1 (MinGW)
 		- freeglut 2.6.0
 		- glew 1.5.6
-		- mpich2 
+		- mpich2 1.2-1
 	Applications:
 		- CodeBlocks
 		- SciTE
+	Examples:
+		pthreads
+		openmp
+		mpi
+		opengl
+		
+NOTES:
+	- Sep 29 2010 Initial vesion (by drahosp)
