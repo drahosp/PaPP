@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1284937545 source:c:\users\drahosp\desktop\ppp\examples\opengl\glut.c
+	<GL/glut.h>
+
+1284937546 source:c:\work\ppp\examples\opengl\glut.c
+	<GL/glut.h>
+

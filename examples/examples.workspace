@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="PaP Examples">
+		<Project filename="pthreads/pthreads.cbp" active="1" />
+		<Project filename="mpi/mpi.cbp" />
+		<Project filename="opengl/opengl.cbp" />
+		<Project filename="openmp/openmp.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
