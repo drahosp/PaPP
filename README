@@ -1,7 +1,7 @@
 Package for Parallel Programming Courses
-=====
+-----
 
-A stripped down MinGW based distribution of the gcc compiler and related libraries. The purpose of this package is to provide a self-updating windows distribution for practical teaching parallel programing. A series of basic examles of using various programming APIs is included.
+A stripped down MinGW based distribution of the gcc compiler and related libraries. The purpose of this package is to provide a self-updating windows distribution for practical teaching of parallel programing. A series of basic examles of using various programming APIs is included.
 
 Package contains the following:
 	ToolChain:
@@ -24,3 +24,4 @@ Package contains the following:
 		- mpich2 
 	Applications:
 		- CodeBlocks
+		- SciTE
