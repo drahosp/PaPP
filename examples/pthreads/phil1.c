@@ -1,3 +1,4 @@
+
 // Dining philosophers - simple solution with mutex
 // gcc -o phil1 phil1.c -lpthread
 
