@@ -17,6 +17,7 @@ Package contains the following:
 			- ssp 4.5.0-1 (MinGW)
 		- make 3.82-3 (MinGW) With a "make" wrapper command for mingw32-make
 		- gdb 7.2-1 (MinGW)
+			- libexpat 2.0.2 (MinGW)
 		- git-core 1.7.2.3 (msysgit) cut down to work with http only (no opensh)
 		- w32api 3.15-1 (MinGW)
 		- freeglut 2.6.0
@@ -32,4 +33,5 @@ Package contains the following:
 		opengl
 		
 NOTES:
-	- Sep 29 2010 Initial vesion (by drahosp)
+	- Oct 5 2010 Added missing libexpat dependency for gdb (drahosp)
+	- Sep 29 2010 Initial vesion (drahosp)
