@@ -30,6 +30,11 @@
 extern "C" {
 #endif
 
+// Modifikacia koli kompatibilite
+// sleep zial nieje v MinGW, Pouzijeme Sleep z win32 API (drahosp)
+#include <Windows.h>
+#define sleep(x) Sleep((x)*1000)
+
 #if !defined __NO_ISOCEXT
 #include <sys/types.h> /* For useconds_t. */
 
