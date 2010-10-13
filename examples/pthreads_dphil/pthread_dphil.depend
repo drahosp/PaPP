@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1286819314 source:c:\users\michal\documents\fiit\courses\parallelprogramming\cvicenia\package\papp_svn\examples\examples\pthreads_dphil\dphil_locktable.c
+	<pthread.h>
+
+1286820238 source:c:\users\michal\documents\fiit\courses\parallelprogramming\cvicenia\package\papp_svn\examples\examples\pthreads_dphil\pthreads_common.c
+	<windows.h>
+
+1286822797 source:c:\users\michal\documents\fiit\courses\parallelprogramming\cvicenia\package\papp_svn\examples\examples\pthreads_dphil\dphil_common.c
+	<stdio.h>
+	<pthread.h>
+	<stdlib.h>
+	<string.h>
+
+1286814961 source:c:\users\michal\documents\fiit\courses\parallelprogramming\cvicenia\package\papp_svn\examples\examples\pthreads_dphil\dphil_leftie.c
+	<pthread.h>
+
+1286815337 source:c:\users\michal\documents\fiit\courses\parallelprogramming\cvicenia\package\papp_svn\examples\examples\pthreads_dphil\dphil_footman.c
+	<pthread.h>
+
+1286820238 source:c:\work\papp\examples\pthreads_dphil\pthreads_common.c
+	<windows.h>
+
+1286995608 source:c:\work\papp\examples\pthreads_dphil\dphil_common.c
+	"dphil.h"
+
+1286981001 c:\work\papp\examples\pthreads_dphil\dphil.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<time.h>
+	<pthread.h>
+
+1286994496 source:c:\work\papp\examples\pthreads_dphil\dphil_footman.c
+	"dphil.h"
+
