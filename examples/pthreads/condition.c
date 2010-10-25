@@ -2,7 +2,14 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-pthread_mutex_t count_mutex     = PTHREAD_MUTEX_INITIALIZER;
+/*
+ Condition variable example
+ Synchronize threads using a range condition
+ Thread 1 will count to COUNT_HALT1
+ Thread 2 will count from COUNT_HALT1 to COUNT_HALT2
+ Thread 1 will count to COUNT_DONE from there
+*/
+
 pthread_mutex_t condition_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t  condition_cond  = PTHREAD_COND_INITIALIZER;
 
@@ -11,41 +18,62 @@ int  count = 0;
 #define COUNT_HALT1  3
 #define COUNT_HALT2  6
 
+// Thread 1 Body
+// Increase count according to condition
 void *functionCount1()
 {
-   for(;;) {
-      pthread_mutex_lock( &condition_mutex );
-      while( count >= COUNT_HALT1 && count <= COUNT_HALT2 ) {
-         pthread_cond_wait( &condition_cond, &condition_mutex );
-      }
-      pthread_mutex_unlock( &condition_mutex );
+    for(;;) {
+        // While checking the condition use a mutex
+        pthread_mutex_lock( &condition_mutex );
 
-      pthread_mutex_lock( &count_mutex );
-      count++;
-      printf("Counter value functionCount1: %d\n",count);
-      pthread_mutex_unlock( &count_mutex );
+        //  Wait for the next signal
+        if( count >= COUNT_HALT1 && count <= COUNT_HALT2 )
+            pthread_cond_wait( &condition_cond, &condition_mutex );
 
-      if(count >= COUNT_DONE) pthread_exit(0);
+        // Increnent counter and print its value
+        // Only values < COUNT_HALT1 and > COUNT_HALT2 will be printed
+        printf("Counter value functionCount1: %d\n",count);
+        count++;
+
+        // Signal another thread to check its condition
+        pthread_cond_signal( &condition_cond);
+
+        // Unlock the condition mutex
+        pthread_mutex_unlock( &condition_mutex );
+
+        // Exit if counting is done
+        if (count >= COUNT_DONE)pthread_exit(0);
     }
 }
 
+// Thread 2 Body
+// Same as Thread 1 but with apropriate condition change
 void *functionCount2() {
     for(;;) {
-       pthread_mutex_lock( &condition_mutex );
-       if( count < COUNT_HALT1 || count > COUNT_HALT2 ) {
-          pthread_cond_signal( &condition_cond );
-       }
-       pthread_mutex_unlock( &condition_mutex );
+        // While checking the condition use a mutex
+        pthread_mutex_lock( &condition_mutex );
 
-       pthread_mutex_lock( &count_mutex );
-       count++;
-       printf("Counter value functionCount2: %d\n",count);
-       pthread_mutex_unlock( &count_mutex );
+        //  Wait for the next signal
+        if( count < COUNT_HALT1 || count > COUNT_HALT2 )
+            pthread_cond_wait( &condition_cond, &condition_mutex );
 
-       if(count >= COUNT_DONE) pthread_exit(0);
+        // Increnent counter and print its value
+        // Only values < COUNT_HALT1 and > COUNT_HALT2 will be printed
+        printf("Counter value functionCount2: %d\n",count);
+        count++;
+
+        // Signal another thread to check its condition
+        pthread_cond_signal( &condition_cond);
+
+        // Unlock the condition mutex
+        pthread_mutex_unlock( &condition_mutex );
+
+        // Exit if no longer needed
+        if (count >= COUNT_HALT2) pthread_exit(0);
     }
 }
 
+// Spawn threads
 int main(void) {
    pthread_t thread1, thread2;
 
@@ -56,4 +84,3 @@ int main(void) {
 
    exit(EXIT_SUCCESS);
 }
-
