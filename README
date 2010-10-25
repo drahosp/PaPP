@@ -33,5 +33,6 @@ Package contains the following:
 		opengl
 		
 NOTES:
+	- Ocr 25 2010 Code::Blocks is now fully portable and the user settings will be preserved on update
 	- Oct 5 2010 Added missing libexpat dependency for gdb (drahosp)
 	- Sep 29 2010 Initial vesion (drahosp)
