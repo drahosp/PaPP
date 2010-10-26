@@ -6,5 +6,6 @@
 		<Project filename="opengl/opengl.cbp" />
 		<Project filename="openmp/openmp.cbp" />
 		<Project filename="pthreads_dphil/pthread_dphil.cbp" />
+		<Project filename="fractal/fractal.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

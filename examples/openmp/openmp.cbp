@@ -14,14 +14,15 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add option="-lpthread -lgomp" />
-				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-fopenmp" />
 		</Compiler>
+		<Linker>
+			<Add option="-fopenmp" />
+		</Linker>
 		<Unit filename="basic.c">
 			<Option compilerVar="CC" />
 		</Unit>
