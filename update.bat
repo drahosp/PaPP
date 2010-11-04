@@ -6,8 +6,9 @@ setlocal
 set PATH=%~dp0\toolchain\bin;%PATH%
 git remote set-url origin git://github.com/drahosp/PaPP.git
 git remote set-url --push origin git@github.com:drahosp/PaPP.git
+git checkout master
 git reset --hard HEAD
 git fetch origin
-git checkout origin/master
+git merge origin/master
 endlocal
 
