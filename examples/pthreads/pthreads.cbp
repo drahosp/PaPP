@@ -72,6 +72,19 @@
 					<Add option="-lpthread" />
 				</Linker>
 			</Target>
+			<Target title="condition2">
+				<Option output="bin\condition" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin\condition2\" />
+				<Option object_output="obj\condition2\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
@@ -83,6 +96,10 @@
 		<Unit filename="condition.c">
 			<Option compilerVar="CC" />
 			<Option target="condition" />
+		</Unit>
+		<Unit filename="condition2.c">
+			<Option compilerVar="CC" />
+			<Option target="condition2" />
 		</Unit>
 		<Unit filename="joins.c">
 			<Option compilerVar="CC" />
