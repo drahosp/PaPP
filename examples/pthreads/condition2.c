@@ -20,7 +20,7 @@ pthread_cond_t odd_cond = PTHREAD_COND_INITIALIZER;         // condition variabl
 pthread_mutex_t cond_mutex = PTHREAD_MUTEX_INITIALIZER;     // mutex connected with condition
 int countIsOdd = 0;                                         // boolean predicate connected with condition
 
-int count = 0;                                              // critical section protected by count_mutex
+int count = 0;                                              // shared resource, critical section should be protected by count_mutex
 
 #define MAX_COUNT 100
 
