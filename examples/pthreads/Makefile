@@ -15,5 +15,8 @@ mutex: mutex.c
 condition: condition.c
 	$(CC) -o $@ condition.c $(LIBS)
 
+condition2: condition2.c
+  $(CC) -o $@ condition2.c $(LIBS)
+
 semaphore: semaphore.c
 	$(CC) -o $@ semaphore.c $(LIBS)
