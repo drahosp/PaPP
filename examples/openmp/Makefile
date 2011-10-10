@@ -1,7 +1,32 @@
-CC=gcc
-LIBS=-lpthread -lgomp
+#
+# Makefile for POSIX threads demo programs
+#
+# "make program" to make one program
+# "make" or "make all" to make all executables
+# "make clean" to remove executables
+#
 
-all: basic
+CC		= gcc
+CFLAGS	= -O3 -Wall -fopenmp
+LFLAGS	= -lm
 
-basic: basic.c
-	$(CC) -o $@ basic.c $(LIBS)
+ALL =   omp_basic \
+	omp_critical \
+	omp_for \
+	omp_get_env_info \
+	omp_hello \
+	omp_matrixmult \
+	omp_num_threads \
+	omp_pi \
+	omp_reduction \
+	omp_sections \
+	omp_shared \
+	omp_threadprivate
+
+all:  $(ALL)
+
+%: %.c 
+	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
+
+clean:
+	-rm $(ALL)

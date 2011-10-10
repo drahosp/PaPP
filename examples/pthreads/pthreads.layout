@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="basic" />
-	<File name="basic.c" open="1" top="1" tabpos="0">
-		<Cursor position="60" topLine="0" />
+	<ActiveTarget name="semaphore" />
+	<File name="pt_basic.c" open="1" top="1" tabpos="0">
+		<Cursor position="246" topLine="0" />
 	</File>
-	<File name="condition.c" open="0" top="0" tabpos="0">
-		<Cursor position="2114" topLine="20" />
+	<File name="pt_condition2.c" open="0" top="0" tabpos="0">
+		<Cursor position="248" topLine="0" />
 	</File>
-	<File name="joins.c" open="0" top="0" tabpos="3">
-		<Cursor position="151" topLine="8" />
+	<File name="pt_condition3.c" open="0" top="0" tabpos="0">
+		<Cursor position="506" topLine="13" />
 	</File>
-	<File name="mutex.c" open="0" top="0" tabpos="4">
-		<Cursor position="124" topLine="1" />
+	<File name="pt_detached.c" open="0" top="0" tabpos="0">
+		<Cursor position="722" topLine="0" />
 	</File>
-	<File name="semaphore.c" open="0" top="0" tabpos="5">
-		<Cursor position="100" topLine="0" />
+	<File name="pt_join2.c" open="0" top="0" tabpos="0">
+		<Cursor position="638" topLine="3" />
+	</File>
+	<File name="pt_semaphore.c" open="0" top="0" tabpos="0">
+		<Cursor position="2633" topLine="39" />
 	</File>
 </CodeBlocks_layout_file>

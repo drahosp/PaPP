@@ -13,20 +13,18 @@
 #define NUM_THREADS     4
 #define ITERATIONS 1000000
 
-/* 
+/*
    This is the start routine that all threads execute. It draws 1000000
    random numbers between 0 and 1 and sums them in result
 */
 void *work(void *t) {
-  double maxval;
   double *result;
   int i, tid;
   result = malloc(sizeof(double));
   *result = 0.0;
-  maxval = pow(2.0,31.0)-1; /* Maximum value from random() */
   tid = (int)t;   /* Get thread number */
   for (i=0; i<ITERATIONS; i++) {
-    *result += (double)random()/maxval;
+    *result += (double)rand()/RAND_MAX;
   }
   /* printf("Thread %d done. Result = %7.2f\n",tid, *result); */
   pthread_exit((void*) result);  /* Pass the pointer to result back */
@@ -65,7 +63,7 @@ int main(int argc, char *argv[]) {
     total += res;
     printf("Joined with thread %d, result = %6.2f\n",i,res);
   }
-  
+
   printf("\n");
   printf("Program completed, total = %6.2f\n", total);
   pthread_exit(NULL);

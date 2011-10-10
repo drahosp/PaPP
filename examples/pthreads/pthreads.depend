@@ -1,25 +1,10 @@
 # depslib dependency file v1.0
-1284935800 source:c:\users\drahosp\desktop\ppp\examples\pthreads\basic.c
+1318245617 source:z:\desktop\work\github\drahosp\papp\examples\pthreads\pt_basic.c
 	<stdio.h>
 	<stdlib.h>
 	<pthread.h>
 
-1285004283 source:c:\work\ppp\examples\pthreads\basic.c
-	<stdio.h>
-	<stdlib.h>
-	<pthread.h>
-
-1285001672 source:c:\work\ppp\examples\pthreads\condition.c
-	<stdio.h>
-	<stdlib.h>
-	<pthread.h>
-
-1285002226 source:c:\work\ppp\examples\pthreads\mutex.c
-	<stdio.h>
-	<stdlib.h>
-	<pthread.h>
-
-1284922834 source:c:\work\ppp\examples\pthreads\semaphore.c
+1318248503 source:z:\desktop\work\github\drahosp\papp\examples\pthreads\pt_semaphore.c
 	<stdlib.h>
 	<stdio.h>
 	<pthread.h>

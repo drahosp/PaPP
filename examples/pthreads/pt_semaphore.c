@@ -25,7 +25,7 @@ void *function()
                                    When sem_wait() function is "finished" the semaphore value is decremented.
                                    It is done so immediately (if thread has not been suspended) or when the suspended thread is resumed. */
         ++count;                // critical section
-        sem_post (sem);        // increments the semaphore value
+        sem_post(sem);        // increments the semaphore value
     }
     pthread_exit(0);
 }
@@ -33,15 +33,15 @@ void *function()
 int main(void)
 {
     pthread_t tid1, tid2;
-
     // All semaphore functions return 0 on success and -1 on error.
-
 #ifdef __APPLE__
 	// On Mac OSX we need to use named semaphores and sem_open / sem_unlink
 	// See manual for sem_open for details
 	sem = sem_open("Semaphore", O_CREAT, 0777, SEMINITVALUE);
 	if (sem == SEM_FAILED)
 #else
+    // Initialize semaphore space since we only have a pointer
+    sem = malloc(sizeof(sem_t));
     if (sem_init(sem, 0, SEMINITVALUE) == -1) // initializes semaphore object pointed to by sem
 #endif
     {
@@ -82,6 +82,7 @@ int main(void)
 	sem_unlink("Semaphore");
 #else
     sem_destroy(sem); // No threads should be waiting on the semaphore at the time sem_destroy is called.
+    free(sem);
 #endif
 
     exit(EXIT_SUCCESS);

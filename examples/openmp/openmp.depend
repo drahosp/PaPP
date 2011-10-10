@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1286210612 source:c:\work\papp\examples\openmp\basic.c
-	<stdio.h>
-	<omp.h>
-

@@ -1,6 +1,6 @@
 /*
  Basic use of the pthread library
- This example creates two threads, each thread prints a message 
+ This example creates two threads, each thread prints a message
  obtained from a passed argument.
 */
 
@@ -37,4 +37,3 @@ int main(void) {
 	printf("Thread 2 returns: %d\n",iret2);
 	exit(EXIT_SUCCESS);
 }
-

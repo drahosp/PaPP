@@ -2,14 +2,14 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="pthreads" />
+		<Option title="POSIX Threads Examples" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="basic">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_basic" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -20,9 +20,9 @@
 				</Linker>
 			</Target>
 			<Target title="condition1">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_condition1" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -33,9 +33,9 @@
 				</Linker>
 			</Target>
 			<Target title="condition2">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_condition2" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -46,9 +46,9 @@
 				</Linker>
 			</Target>
 			<Target title="condition3">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_condition3" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -59,9 +59,9 @@
 				</Linker>
 			</Target>
 			<Target title="detached">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_detached" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -72,9 +72,9 @@
 				</Linker>
 			</Target>
 			<Target title="dotprod">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_dotprod" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -85,9 +85,9 @@
 				</Linker>
 			</Target>
 			<Target title="hello1">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_hello1" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -98,9 +98,9 @@
 				</Linker>
 			</Target>
 			<Target title="hello2">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_hello2" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -111,9 +111,9 @@
 				</Linker>
 			</Target>
 			<Target title="join1">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_join1" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -124,9 +124,9 @@
 				</Linker>
 			</Target>
 			<Target title="join2">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_join2" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -137,9 +137,9 @@
 				</Linker>
 			</Target>
 			<Target title="mutex">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_mutex" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -150,9 +150,9 @@
 				</Linker>
 			</Target>
 			<Target title="semaphore">
-				<Option output="bin" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin" />
-				<Option object_output="bin" />
+				<Option output="pt_semaphore" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -161,7 +161,7 @@
 				<Linker>
 					<Add option="-lpthread" />
 				</Linker>
-			</Targe
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />

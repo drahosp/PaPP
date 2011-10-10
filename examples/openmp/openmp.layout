@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="basic" />
-	<File name="basic.c" open="1" top="0" tabpos="5">
-		<Cursor position="204" topLine="0" />
+	<ActiveTarget name="threadprivate" />
+	<File name="omp_basic.c" open="0" top="0" tabpos="0">
+		<Cursor position="352" topLine="0" />
+	</File>
+	<File name="omp_matrixmult.c" open="0" top="0" tabpos="0">
+		<Cursor position="172" topLine="0" />
+	</File>
+	<File name="omp_num_threads.c" open="0" top="0" tabpos="0">
+		<Cursor position="236" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
