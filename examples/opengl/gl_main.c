@@ -1,12 +1,17 @@
+/*
+ OpenGL visualization skeleton for displaying bitmap images. Just provide a GenerateImage function.
+ Good starting point for all image processing exercises for parallel programming.
+*/
+
 #include <stdio.h>
-#include "fractal.h"
+#include <stdlib.h>
+#include "gl_main.h"
 
 GLuint texture;
 
 // Initialize OpenGL state
 void init() {
-    zoom = 1;
-    // Texture setup
+	// Texture setup
     glEnable(GL_TEXTURE_2D);
     glGenTextures( 1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -44,17 +49,6 @@ void display() {
     glutSwapBuffers();
 }
 
-// Handle Mouse Wheel
-void wheel(int button, int dir, int x, int y) {
-    if (dir > 0) {
-        zoom*=1.1;
-    }
-    else {
-        zoom*=0.9;
-    }
-    printf("Zoom %d\%\n", (int)(zoom*100.0));
-}
-
 // Main entry function
 int main(int argc, char ** argv) {
     // Init GLUT
@@ -66,7 +60,6 @@ int main(int argc, char ** argv) {
     init();
     // Run the control loop
     glutDisplayFunc(display);
-    glutMouseWheelFunc(wheel);
     glutMainLoop();
     return EXIT_SUCCESS;
 }

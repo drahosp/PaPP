@@ -2,14 +2,14 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="opengl" />
+		<Option title="OpenGL Codebase" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="glut">
-				<Option output="bin\glut" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\glut\" />
-				<Option object_output="obj\glut\" />
+			<Target title="gradient">
+				<Option output="gl_gradient" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -23,8 +23,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="glut.c">
+		<Unit filename="gl_main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gl_gradient.c">
+			<Option compilerVar="CC" />
+			<Option target="gradient" />
 		</Unit>
 		<Extensions>
 			<code_completion />
