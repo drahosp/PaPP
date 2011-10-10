@@ -1,13 +1,23 @@
-CC=gcc
-LIBS=-lpthread
+#
+# Makefile for Philosophers demo programs
+#
+# "make program" to make one program
+# "make" or "make all" to make all executables
+# "make clean" to remove executables
+#
 
-all: footman leftie locktable
+CC		= gcc
+CFLAGS	= -O3 -Wall
+LFLAGS	= -lm -lpthread
 
-footman: dphil_common.c dphil_footman.c
-	$(CC) -o $@ dphil_common.c dphil_footman.c $(LIBS)
+ALL	= dphil_leftie \
+	dphil_locktable \
+	dphil_footman
 
-leftie: dphil_common.c dphil_leftie.c
-	$(CC) -o $@ dphil_common.c dphil_leftie.c $(LIBS)
+all:  $(ALL)
 
-locktable: dphil_common.c dphil_locktable.c
-	$(CC) -o $@ dphil_common.c dphil_locktable.c $(LIBS)
+%: %.c 
+	$(CC) -o $@ dphil_common.c $(CFLAGS) $< $(LFLAGS)
+
+clean:
+	-rm $(ALL)
