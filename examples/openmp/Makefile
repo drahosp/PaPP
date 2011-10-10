@@ -1,5 +1,5 @@
 #
-# Makefile for POSIX threads demo programs
+# Makefile for OpenMP demo programs
 #
 # "make program" to make one program
 # "make" or "make all" to make all executables

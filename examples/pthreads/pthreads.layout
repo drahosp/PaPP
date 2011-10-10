@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="semaphore" />
+	<ActiveTarget name="basic" />
 	<File name="pt_basic.c" open="1" top="1" tabpos="0">
-		<Cursor position="246" topLine="0" />
-	</File>
-	<File name="pt_condition2.c" open="0" top="0" tabpos="0">
-		<Cursor position="248" topLine="0" />
-	</File>
-	<File name="pt_condition3.c" open="0" top="0" tabpos="0">
-		<Cursor position="506" topLine="13" />
-	</File>
-	<File name="pt_detached.c" open="0" top="0" tabpos="0">
-		<Cursor position="722" topLine="0" />
-	</File>
-	<File name="pt_join2.c" open="0" top="0" tabpos="0">
-		<Cursor position="638" topLine="3" />
-	</File>
-	<File name="pt_semaphore.c" open="0" top="0" tabpos="0">
-		<Cursor position="2633" topLine="39" />
+		<Cursor position="0" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
