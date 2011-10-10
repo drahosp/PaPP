@@ -1,22 +1,32 @@
-CC=gcc
-LIBS=-lpthread
+#
+# Makefile for POSIX threads demo programs
+#
+# "make program" to make one program
+# "make" or "make all" to make all executables
+# "make clean" to remove executables
+#
 
-all: basic joins mutex condition semaphore
+CC		= gcc
+CFLAGS	= -O3 -Wall
+LFLAGS	= -lm -lpthread
 
-basic: basic.c
-	$(CC) -o $@ basic.c $(LIBS)
+ALL =   pt_basic \
+	pt_condition1 \
+	pt_condition2 \
+	pt_condition3 \
+	pt_detached \
+	pt_dotprod \
+	pt_hello1 \
+	pt_hello2 \
+	pt_join1 \
+	pt_join2 \
+	pt_mutex \
+	pt_semaphore
 
-joins: joins.c
-	$(CC) -o $@ joins.c $(LIBS)
+all:  $(ALL)
 
-mutex: mutex.c
-	$(CC) -o $@ mutex.c $(LIBS)
+%: %.c 
+	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
 
-condition: condition.c
-	$(CC) -o $@ condition.c $(LIBS)
-
-condition2: condition2.c
-	$(CC) -o $@ condition2.c $(LIBS)
-
-semaphore: semaphore.c
-	$(CC) -o $@ semaphore.c $(LIBS)
+clean:
+	-rm $(ALL)

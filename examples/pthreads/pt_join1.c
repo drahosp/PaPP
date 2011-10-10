@@ -1,3 +1,10 @@
+/*
+ This example demonstrates how to use pthread_join and how to pass results back from the treads.
+ Threads are explicitly created as joinable Each thread draws one million random numbers between
+ 0 and 1 and adds these together in a variable sum. This is passed back to the joining thread in
+ the pthread_exit call.
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <pthread.h>

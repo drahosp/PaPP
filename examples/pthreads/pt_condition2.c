@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
-
 /*
  Condition variable example 2
  Two threads will count to MAX_COUNT by using same variable.
@@ -10,6 +6,9 @@
  Synchronize threads using a condition variable.
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
 
 pthread_mutex_t count_mutex = PTHREAD_MUTEX_INITIALIZER;    // mutex protecting 'count' variable being accessed concurrently
 /*
@@ -61,7 +60,7 @@ void* evenCounter(void* arg)
 {
     int thread_should_exit = 0;
     int ID = (int)arg;
-
+	
     for (;;)
     {
         pthread_mutex_lock( &count_mutex );                 // only this thread will access 'count' variable after this call

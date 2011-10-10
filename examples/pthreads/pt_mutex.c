@@ -1,3 +1,10 @@
+/*
+ Basic example of using mutex to lock a shared variable. In this case two
+ threads will increment a shared counter variable. Since the incrementation
+ is not atomic the mutex ensures that the counter remains continuous. Try to
+ figure out why the counter increments to 11.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -6,11 +13,13 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 int  counter = 0;
 
 void *function() {
-   pthread_mutex_lock( &mutex );
-   counter++;
-   printf("Counter value: %d\n",counter);
-   pthread_mutex_unlock( &mutex );
-   pthread_exit(0);
+	while( counter < 10 ) {
+		pthread_mutex_lock( &mutex );
+		counter++;
+		printf("Counter value: %d\n",counter);
+		pthread_mutex_unlock( &mutex );
+	}
+	pthread_exit(0);
 }
 
 int main(void) {

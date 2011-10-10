@@ -7,9 +7,9 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="basic">
-				<Option output="bin\basic" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\basic\" />
-				<Option object_output="obj\basic\" />
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -19,50 +19,10 @@
 					<Add option="-lpthread" />
 				</Linker>
 			</Target>
-			<Target title="condition">
-				<Option output="bin\condition" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\condition\" />
-				<Option object_output="obj\condition\" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-				<Linker>
-					<Add option="-lpthread" />
-				</Linker>
-			</Target>
-			<Target title="joins">
-				<Option output="bin\joins" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\joins\" />
-				<Option object_output="obj\joins\" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-					<Add option="-lpthread" />
-				</Linker>
-			</Target>
-			<Target title="mutex">
-				<Option output="bin\mutex" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\mutex\" />
-				<Option object_output="obj\mutex\" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-				<Linker>
-					<Add option="-lpthread" />
-				</Linker>
-			</Target>
-			<Target title="semaphore">
-				<Option output="bin\semaphore" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\semaphore\" />
-				<Option object_output="obj\semaphore\" />
+			<Target title="condition1">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -73,9 +33,9 @@
 				</Linker>
 			</Target>
 			<Target title="condition2">
-				<Option output="bin\condition" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\condition2\" />
-				<Option object_output="obj\condition2\" />
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -85,31 +45,172 @@
 					<Add option="-lpthread" />
 				</Linker>
 			</Target>
+			<Target title="condition3">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="detached">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="dotprod">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="hello1">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="hello2">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="join1">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="join2">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="mutex">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+			<Target title="semaphore">
+				<Option output="bin" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+				</Linker>
+			</Targe
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="basic.c">
+		<Unit filename="pt_basic.c">
 			<Option compilerVar="CC" />
 			<Option target="basic" />
 		</Unit>
-		<Unit filename="condition.c">
+		<Unit filename="pt_condition1.c">
 			<Option compilerVar="CC" />
-			<Option target="condition" />
+			<Option target="condition1" />
 		</Unit>
-		<Unit filename="condition2.c">
+		<Unit filename="pt_condition2.c">
 			<Option compilerVar="CC" />
 			<Option target="condition2" />
 		</Unit>
-		<Unit filename="joins.c">
+		<Unit filename="pt_condition3.c">
 			<Option compilerVar="CC" />
-			<Option target="joins" />
+			<Option target="condition3" />
 		</Unit>
-		<Unit filename="mutex.c">
+		<Unit filename="pt_detached.c">
+			<Option compilerVar="CC" />
+			<Option target="detached" />
+		</Unit>
+		<Unit filename="pt_dotprod.c">
+			<Option compilerVar="CC" />
+			<Option target="dotprod" />
+		</Unit>
+		<Unit filename="pt_hello1.c">
+			<Option compilerVar="CC" />
+			<Option target="hello1" />
+		</Unit>
+		<Unit filename="pt_hello2.c">
+			<Option compilerVar="CC" />
+			<Option target="hello2" />
+		</Unit>
+		<Unit filename="pt_join1.c">
+			<Option compilerVar="CC" />
+			<Option target="join1" />
+		</Unit>
+		<Unit filename="pt_join2.c">
+			<Option compilerVar="CC" />
+			<Option target="join2" />
+		</Unit>
+		<Unit filename="pt_mutex.c">
 			<Option compilerVar="CC" />
 			<Option target="mutex" />
 		</Unit>
-		<Unit filename="semaphore.c">
+		<Unit filename="pt_semaphore.c">
 			<Option compilerVar="CC" />
 			<Option target="semaphore" />
 		</Unit>
