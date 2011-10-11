@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
   const int tag = 42;	/* Message tag */
   int id, ntasks, err;
   MPI_Status status;
-  
+
   MPI_Datatype my_type;   /* This is the new MPI datatype that we will build */
 
   typedef struct {     /* Data structure for input data */
@@ -26,15 +26,15 @@ int main(int argc, char *argv[]) {
     float b;
     int n;
   } Indata_type;
-  
+
   Indata_type indata, recdata;   /* Variables for input data */
 
   int lengtharray[3];           /* Array of lengths */
   MPI_Aint disparray[3];        /* Array of displacements */
   MPI_Datatype typearray[3];    /* Array of MPI datatypes */
-  
+
   MPI_Aint startaddress, address;   /* Variables used to calculate displacements */
-  
+
   err = MPI_Init(&argc, &argv);	/* Initialize MPI */
   if (err != MPI_SUCCESS) {
     printf("MPI initialization failed!\n");
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
   }
   MPI_Comm_size(MPI_COMM_WORLD, &ntasks);	/* Get nr of tasks */
   MPI_Comm_rank(MPI_COMM_WORLD, &id);		/* Get id of this process */
-  
+
   if (ntasks != 2) {
     if (id == 0) printf("You have to run this program with 2 processes\n");
     MPI_Finalize();
@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
 
   if (id == 0) {			       	/* Process 0 does this */
     printf("Enter a, b and n: ");
+    fflush(stdout);                 /* Force stdout to display */
     scanf("%f %f %d", &indata.a, &indata.b, &indata.n);  /* Read input */
   }
 

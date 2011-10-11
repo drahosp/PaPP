@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="threadprivate" />
-	<File name="omp_basic.c" open="0" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-	</File>
+	<ActiveTarget name="basic" />
 </CodeBlocks_layout_file>

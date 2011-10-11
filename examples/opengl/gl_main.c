@@ -55,7 +55,7 @@ int main(int argc, char ** argv) {
     glutInit(&argc, argv);
     glutInitWindowSize(TEX_SIZE, TEX_SIZE);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutCreateWindow("Fractal");
+    glutCreateWindow("OpenGL Window");
     // Set up OpenGL state
     init();
     // Run the control loop
