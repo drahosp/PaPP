@@ -66,8 +66,17 @@ typedef int MPI_Datatype;
 #define MPI_DOUBLE_PRECISION  ((MPI_Datatype)0x4c00081f)
 #define MPI_INTEGER           ((MPI_Datatype)0x4c00041b)
 #define MPI_2INTEGER          ((MPI_Datatype)0x4c000820)
+/* 
+ * MPI_2COMPLEX and MPI_2DOUBLE_COMPLEX were defined by accident in 
+ * MPI 1.0 and removed in MPI 1.1.  
+ *
+ * This definition provides backward compatibility.  These definitions
+ * will be removed in a subsequent MPICH release
+ */
+#ifdef MPICH_DEFINE_2COMPLEX
 #define MPI_2COMPLEX          ((MPI_Datatype)0x4c001024)
 #define MPI_2DOUBLE_COMPLEX   ((MPI_Datatype)0x4c002025)
+#endif 
 #define MPI_2REAL             ((MPI_Datatype)0x4c000821)
 #define MPI_2DOUBLE_PRECISION ((MPI_Datatype)0x4c001023)
 #define MPI_CHARACTER         ((MPI_Datatype)0x4c00011a)
@@ -197,11 +206,14 @@ typedef int MPI_Op;
 /* Upper bound on the overhead in bsend for each message buffer */
 #define MPI_BSEND_OVERHEAD 59
 
+/* keyval for COMM_WORLD attribute holding list of failed processes */
+extern int MPICH_ATTR_FAILED_PROCESSES;
+
 /* Topology types */
 typedef enum MPIR_Topo_type { MPI_GRAPH=1, MPI_CART=2, MPI_DIST_GRAPH=3 } MPIR_Topo_type;
 
 #define MPI_BOTTOM      (void *)0
-#define MPI_UNWEIGHTED  ((void *)0)
+#define MPI_UNWEIGHTED  ((int *)0)
 
 #define MPI_PROC_NULL   (-1)
 #define MPI_ANY_SOURCE 	(-2)
@@ -300,8 +312,8 @@ typedef int (MPI_Delete_function) ( MPI_Comm, int, void *, void * );
  * digits for REV, 1 digit for EXT and 2 digits for EXT_NUMBER. So,
  * 1.0.7rc1 will have the numeric version 10007201.
  */
-#define MPICH2_VERSION "1.2.1p1"
-#define MPICH2_NUMVERSION 10201301
+#define MPICH2_VERSION "1.4.1p1"
+#define MPICH2_NUMVERSION 10401301
 
 #define MPICH2_RELEASE_TYPE_ALPHA  0
 #define MPICH2_RELEASE_TYPE_BETA   1
