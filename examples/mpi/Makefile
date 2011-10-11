@@ -42,6 +42,7 @@ clean:
 
 # Linux
 ifeq ($(UNAME),Linux)
+LFLAGS	= -lm -lmpi -I/usr/include/mpi
 clean:
 	-rm $(ALL)
 endif

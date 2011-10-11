@@ -5,7 +5,6 @@
 	#include <OpenGL/gl.h>
 	#include <OpenGL/glu.h>
 	#include <GLUT/glut.h>
-typedef unsigned char BYTE;
 #else
 	#include <GL/freeglut.h>
 	#include <GL/freeglut_ext.h>
@@ -14,9 +13,9 @@ typedef unsigned char BYTE;
 #define TEX_SIZE 512
 
 struct pixel {
-    BYTE r;
-    BYTE g;
-    BYTE b;
+    GLbyte r;
+    GLbyte g;
+    GLbyte b;
 } image[TEX_SIZE*TEX_SIZE];
 
 void GenerateImage();
