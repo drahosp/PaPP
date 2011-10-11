@@ -11,7 +11,7 @@
 #include <mpi.h>
 
 int main(int argc, char *argv[]) {
-  double r, maxval, sum, mean;
+  double r, sum, mean;
   double sum_total, mean_total;
   int id, ntasks, i, n;
 
@@ -23,12 +23,11 @@ int main(int argc, char *argv[]) {
 
   n = 1000000;           /* Number of random values in each process */
   sum = 0.0;
-  maxval = pow(2,31)-1;  /* 2 to the power of 31 minus 1 */
-  srandomdev();          /* Seed the random number generator */
+  srand(id);          /* Seed the random number generator */
 
   /* Draw random numbers and compute their sum and mean value */
   for (i=0; i<n; i++) {
-    r = (double)random()/maxval;   /* Random number between 0 and 1 */
+    r = (double)rand()/RAND_MAX;   /* Random number between 0 and 1 */
     sum += r;                      /* Add the values together */
   }
   mean = sum/(double)n;       /* Compute the mean value */

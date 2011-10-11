@@ -9,6 +9,8 @@
 CC		= gcc
 CFLAGS	= -O3 -Wall -fopenmp
 LFLAGS	= -lm
+UNAME := $(shell uname -s)
+
 
 ALL =   omp_basic \
 	omp_critical \
@@ -28,5 +30,18 @@ all:  $(ALL)
 %: %.c 
 	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
 
+# Windows
+clean:
+	-del *.exe
+
+# Linux
+ifeq ($(UNAME),Linux)
 clean:
 	-rm $(ALL)
+endif
+
+# OSX
+ifeq ($(UNAME),Darwin)
+clean:
+	-rm $(ALL)
+endif

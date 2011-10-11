@@ -18,7 +18,7 @@ int main(int argc,char *argv[])
   const double PI24 = 3.141592653589793238462643;
   
   int n,  myid, numprocs, i;
-  double pi, maxval;
+  double pi;
   double sum_n, in_circle, sum_c;
   double starttime, endtime;
   
@@ -26,8 +26,7 @@ int main(int argc,char *argv[])
   MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
   
-  maxval = pow(2,31)-1;  /* 2 to the power of 31 minus 1 */
-  srandom(myid);          /* Seed the random number generator */
+  srand(myid);          /* Seed the random number generator */
 
   /* Read the number of random samples in each process */
   if (myid == 0) {
@@ -48,8 +47,8 @@ int main(int argc,char *argv[])
   /* Draw n random points and count how many are inside the circle */
   for (i=0; i<n; i++) {
     double x, y, dist;
-    x = (double)random()/maxval; /* Draw a random point */
-    y = (double)random()/maxval;
+    x = (double)rand()/RAND_MAX; /* Draw a random point */
+    y = (double)rand()/RAND_MAX;
     dist = sqrt(x*x+y*y);        /* Compute distance of the point (x,y) to origo */
     if (dist<=1.0) in_circle++;  /* Count how many points are inside the circle */
   }

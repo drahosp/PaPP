@@ -9,6 +9,7 @@
 CC		= gcc
 CFLAGS	= -O3 -Wall
 LFLAGS	= -lm -lpthread
+UNAME := $(shell uname -s)
 
 ALL =   pt_basic \
 	pt_condition1 \
@@ -28,5 +29,18 @@ all:  $(ALL)
 %: %.c 
 	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
 
+# Windows
+clean:
+	-del *.exe
+
+# Linux
+ifeq ($(UNAME),Linux)
 clean:
 	-rm $(ALL)
+endif
+
+# OSX
+ifeq ($(UNAME),Darwin)
+clean:
+	-rm $(ALL)
+endif

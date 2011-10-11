@@ -12,7 +12,7 @@ Check if the number of elements read per process is correct !!!
 #define FILENAME "file1.dat"
 
 int main(int argc, char* argv[]) {
-  int i, np, myid;
+  int np, myid;
   int bufsize, nrchar;
   char *buf;          /* Buffer for reading */
   MPI_Offset filesize;

@@ -10,19 +10,6 @@ CC		= gcc
 CFLAGS	= -O3 -Wall -fopenmp
 UNAME := $(shell uname -s)
 
-# Windows
-LFLAGS	= -lm -lFreeGLUT -lOpenGL32 -lglu32
-
-# Linux
-ifeq ($(UNAME),Linux)
-LFLAGS = -lm -lgl -lglu -lglut
-endif
-
-# OSX
-ifeq ($(UNAME),Darwin)
-LFLAGS = -lm -framework GLUT -framework OpenGL
-endif
-
 ALL =   gl_gradient
 
 all:  $(ALL)
@@ -30,5 +17,21 @@ all:  $(ALL)
 %: %.c 
 	$(CC) -o $@ gl_main.c $(CFLAGS) $< $(LFLAGS)
 
+# Windows
+LFLAGS	= -lm -lFreeGLUT -lOpenGL32 -lglu32
+clean:
+	-del *.exe
+
+# Linux
+ifeq ($(UNAME),Linux)
+LFLAGS = -lm -lgl -lglu -lglut
 clean:
 	-rm $(ALL)
+endif
+
+# OSX
+ifeq ($(UNAME),Darwin)
+LFLAGS = -lm -framework GLUT -framework OpenGL
+clean:
+	-rm $(ALL)
+endif

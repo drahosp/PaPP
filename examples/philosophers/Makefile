@@ -9,6 +9,7 @@
 CC		= gcc
 CFLAGS	= -O3 -Wall
 LFLAGS	= -lm -lpthread
+UNAME := $(shell uname -s)
 
 ALL	= dphil_leftie \
 	dphil_locktable \
@@ -19,5 +20,18 @@ all:  $(ALL)
 %: %.c 
 	$(CC) -o $@ dphil_common.c $(CFLAGS) $< $(LFLAGS)
 
+# Windows
+clean:
+	-del *.exe
+
+# Linux
+ifeq ($(UNAME),Linux)
 clean:
 	-rm $(ALL)
+endif
+
+# OSX
+ifeq ($(UNAME),Darwin)
+clean:
+	-rm $(ALL)
+endif
