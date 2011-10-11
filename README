@@ -1,7 +1,7 @@
 Package for Parallel Programming Courses
 -----
 
-A stripped down MinGW based distribution of the gcc compiler and related libraries. The purpose of this package is to provide a self-updating windows distribution for practical teaching of parallel programing. A series of basic examles of using various programming APIs is included.
+A stripped down MinGW based distribution of the gcc compiler and related libraries. The purpose of this package is to provide a self-contained Windows distribution for practical teaching of parallel programing. A series of basic examples of using various programming APIs is included.
 
 Package contains the following:
 	ToolChain:
@@ -27,12 +27,16 @@ Package contains the following:
 		- CodeBlocks
 		- SciTE
 	Examples:
-		pthreads
-		openmp
-		mpi
-		opengl
+	  Some examples were adopted from Mats Aspnäs parallel programming courses 2011
+	  See: http://users.abo.fi/Mats.Aspnas/PP2010/examples/
+	  - mpi - A collection of MPI based examples
+	  - opengl - OpenGL skeleton for image processing and visualization tasks
+	  - openmp - A collection of OpenMP examples
+	  - philosophers - Various POSIX Threads based solutions for the classic problem
+	  - pthreads - A collection of POSIX Threads examples
 		
 NOTES:
-	- Ocr 25 2010 Code::Blocks is now fully portable and the user settings will be preserved on update
-	- Oct 5 2010 Added missing libexpat dependency for gdb (drahosp)
-	- Sep 29 2010 Initial vesion (drahosp)
+	- Oct 11 2011 Updated examples and additionally tested compilation on OSX, Linux
+	- Oct 25 2010 Code::Blocks is now fully portable and the user settings will be preserved on update
+	- Oct 05 2010 Added missing libexpat dependency for gdb
+	- Sep 29 2010 Initial version
