@@ -8,21 +8,17 @@
 		<Build>
 			<Target title="gradient">
 				<Option output="gl_gradient" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="" />
-				<Option object_output="" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-				<Linker>
-					<Add option="-lFreeGlut -lopengl32 -lglu32" />
-				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-g" />
 		</Compiler>
+		<Linker>
+			<Add option="-lFreeGlut -lopengl32 -lglu32" />
+		</Linker>
 		<Unit filename="gl_main.c">
 			<Option compilerVar="CC" />
 		</Unit>
