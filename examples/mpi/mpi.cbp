@@ -2,31 +2,170 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="mpi" />
+		<Option title="MPI Examples" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="cpi">
-				<Option output="bin\cpi" prefix_auto="0" extension_auto="1" />
-				<Option working_dir="bin\cpi\" />
-				<Option object_output="obj\cpi\" />
+				<Option output="mpi_cpi" prefix_auto="0" extension_auto="1" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-					<Add option="-g" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-					<Add option="-lmpi" />
-				</Linker>
+			</Target>
+			<Target title="datatype">
+				<Option output="mpi_datatype" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="gather">
+				<Option output="mpi_gather" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="hello">
+				<Option output="mpi_hello" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="random_sum">
+				<Option output="mpi_random_sum" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="readfile">
+				<Option output="mpi_readfile" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="writefile">
+				<Option output="mpi_writefile" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="rowcol">
+				<Option output="mpi_rowcol" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="scatter">
+				<Option output="mpi_scatter" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="scatterv">
+				<Option output="mpi_scatterv" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="send-nonblocking-wait">
+				<Option output="mpi_send-nonblocking-wait" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="send-nonblocking-waitall">
+				<Option output="mpi_send-nonblocking-waitall" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="send-nonblocking-wait">
+				<Option output="mpi_send-nonblocking-waitany" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="send-standard">
+				<Option output="mpi_send-standard" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="cpi">
+				<Option output="mpi_send-standard-large" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="send-synchronous">
+				<Option output="mpi_send-synchronous" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="sendcol">
+				<Option output="mpi_sendcol" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-g" />
 		</Compiler>
-		<Unit filename="cpi.c">
+		<Linker>
+			<Add option="-lmpi" />
+		</Linker>
+		<Unit filename="mpi_cpi.c">
 			<Option compilerVar="CC" />
+			<Option target="cpi" />
+		</Unit>
+		<Unit filename="mpi_datatype.c">
+			<Option compilerVar="CC" />
+			<Option target="datatype" />
+		</Unit>
+		<Unit filename="mpi_gather.c">
+			<Option compilerVar="CC" />
+			<Option target="gather" />
+		</Unit>
+		<Unit filename="mpi_hello.c">
+			<Option compilerVar="CC" />
+			<Option target="hello" />
+		</Unit>
+		<Unit filename="mpi_random_sum.c">
+			<Option compilerVar="CC" />
+			<Option target="random_sum" />
+		</Unit>
+		<Unit filename="mpi_readfile.c">
+			<Option compilerVar="CC" />
+			<Option target="readfile" />
+		</Unit>
+		<Unit filename="mpi_writefile.c">
+			<Option compilerVar="CC" />
+			<Option target="writefile" />
+		</Unit>
+		<Unit filename="mpi_rowcol.c">
+			<Option compilerVar="CC" />
+			<Option target="rowcol" />
+		</Unit>
+		<Unit filename="mpi_scatter.c">
+			<Option compilerVar="CC" />
+			<Option target="scatter" />
+		</Unit>
+		<Unit filename="mpi_scatterv.c">
+			<Option compilerVar="CC" />
+			<Option target="scatterv" />
+		</Unit>
+		<Unit filename="mpi_send-nonblocking-wait.c">
+			<Option compilerVar="CC" />
+			<Option target="send-nonblocking-wait" />
+		</Unit>
+		<Unit filename="mpi_send-nonblocking-waitall.c">
+			<Option compilerVar="CC" />
+			<Option target="send-nonblocking-waitall" />
+		</Unit>
+		<Unit filename="mpi_send-nonblocking-waitany.c">
+			<Option compilerVar="CC" />
+			<Option target="send-nonblocking-waitany" />
+		</Unit>
+		<Unit filename="mpi_send-standard.c">
+			<Option compilerVar="CC" />
+			<Option target="send-standard" />
+		</Unit>
+		<Unit filename="mpi_send-standard-large.c">
+			<Option compilerVar="CC" />
+			<Option target="send-standard-large" />
+		</Unit>
+		<Unit filename="mpi_send-synchronous.c">
+			<Option compilerVar="CC" />
+			<Option target="send-synchronous" />
+		</Unit>
+		<Unit filename="mpi_sendcol.c">
+			<Option compilerVar="CC" />
+			<Option target="send-col" />
 		</Unit>
 		<Extensions>
 			<code_completion />
