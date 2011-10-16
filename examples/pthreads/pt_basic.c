@@ -12,7 +12,7 @@ void *function( void *ptr ) {
 	char *message;
 	message = (char *) ptr;
 	printf("Hello from %s \n", message);
-	pthread_exit(0);
+	pthread_exit(0);                        // to return custom value, typecast must be done explicitly: pthread_exit((void*)3);
 }
 
 int main(void) {
@@ -23,15 +23,15 @@ int main(void) {
 
 	/* Create independent threads each of which will execute function */
 
-	iret1 = pthread_create( &thread1, NULL, &function, (void*) message1);
-	iret2 = pthread_create( &thread2, NULL, &function, (void*) message2);
+	pthread_create( &thread1, NULL, &function, (void*) message1);
+	pthread_create( &thread2, NULL, &function, (void*) message2);
 
 	/* Wait until threads are complete before main continues. Unless we */
 	/* wait we run the risk of executing an exit which will terminate   */
 	/* the process and all threads before the threads have completed.   */
 
-	pthread_join( thread1, NULL);
-	pthread_join( thread2, NULL);
+	pthread_join( thread1, (void**)&iret1); // int variable casted to void* was passed to pthread_exit, now we pass address of int variable
+	pthread_join( thread2, (void**)&iret2); // function argument would be int* so that int variable passed by address is filled, we just use void* instead of int here
 
 	printf("Thread 1 returns: %d\n",iret1);
 	printf("Thread 2 returns: %d\n",iret2);
