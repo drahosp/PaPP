@@ -39,8 +39,8 @@ extern "C" {
 #if !defined __NO_ISOCEXT
 #include <sys/types.h> /* For useconds_t. */
 
-// Using Windows Sleep instead of the built in inplementation
-#define usleep(x) Sleep((x)/1000)
+// Using Windows Sleep instead of the built in implementation
+#define usleep(x) Sleep((x)/1000.0f+0.5f)
 //int __cdecl __MINGW_NOTHROW usleep(useconds_t useconds);
 #endif  /* Not __NO_ISOCEXT */
 
