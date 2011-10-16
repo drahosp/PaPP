@@ -42,7 +42,7 @@ void *inc_count(void *t)
         printf("inc_count(): thread %d, count = %d, unlocking mutex\n", my_id, count);
         pthread_mutex_unlock(&count_mutex);
 
-        Sleep(1); // suspends this thread to prevent mutex being locked by the same thread again
+        sleep(1); // suspends this thread to prevent mutex being locked by the same thread again
     }
 
     pthread_exit(NULL);
