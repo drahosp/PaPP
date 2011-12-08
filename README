@@ -23,6 +23,7 @@ Package contains the following:
 		- freeglut 2.6.0
 		- glew 1.5.6
 		- mpich2 1.4.1p1 incl. runtime dependencies (smpd)
+		- Intel OpenCL SDK 1.5 (without docs and examples)
 	Applications:
 		- CodeBlocks
 		- SciTE
@@ -36,6 +37,7 @@ Package contains the following:
 	  - pthreads - A collection of POSIX Threads examples
 		
 NOTES:
+	- Dec 07 2011 Added OpenCL Support using Intel OpenCL SDK
 	- Oct 11 2011 Added patched console launcher to codeblocks with MPI support (http://www.blog.kubiak.co.uk/post/44)
 	- Oct 11 2011 Updated examples and additionally tested compilation on OSX, Linux
 	- Oct 11 2011 Updated MPICH2 libraries and runtime
