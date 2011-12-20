@@ -1,5 +1,6 @@
 #
 # Makefile for OpenCL demo programs
+# Requires GLUT/OpenGL for gradient demo
 #
 # "make program" to make one program
 # "make" or "make all" to make all executables
@@ -7,31 +8,34 @@
 #
 
 CC		= gcc
-CFLAGS	= -O3 -Wall -fopenmp
+CFLAGS	= -O3 -Wall -fopenmp -lm
 UNAME := $(shell uname -s)
 
-ALL =   cl_vector
+ALL =   cl_vector cl_gl_gradient
 
 all:  $(ALL)
 
 %: %.c 
-	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
+	$(CC) -o $@ $(CFLAGS) $< $(CLFLAGS) $(GLFLAGS)
 
 # Windows
-LFLAGS	= -lm -lOpenCL
+CLFLAGS	= -lOpenCL
+GLFLAGS	= -lFreeGLUT -lOpenGL32 -lglu32
 clean:
 	-del *.exe
 
 # Linux
 ifeq ($(UNAME),Linux)
-LFLAGS = -lm -lCL
+CLFLAGS = -lCL
+GLFLAGS = -lGL -lGLU -lglut
 clean:
 	-rm $(ALL)
 endif
 
 # OSX
 ifeq ($(UNAME),Darwin)
-LFLAGS = -lm -framework OpenCL
+CLFLAGS = -framework OpenCL
+GLFLAGS = -lm -framework GLUT -framework OpenGL
 clean:
 	-rm $(ALL)
 endif

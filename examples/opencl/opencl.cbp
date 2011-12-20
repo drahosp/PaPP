@@ -11,17 +11,26 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
+			<Target title="gradient">
+				<Option output="cl_gl_gradient" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-g" />
 		</Compiler>
 		<Linker>
-			<Add option="-lOpenCL" />
+			<Add option="-lOpenCL -lFreeGlut -lopengl32 -lglu32" />
 		</Linker>
 		<Unit filename="cl_vector.c">
 			<Option compilerVar="CC" />
 			<Option target="vector" />
+		</Unit>
+		<Unit filename="cl_gl_gradient.c">
+			<Option compilerVar="CC" />
+			<Option target="gradient" />
 		</Unit>
 		<Extensions>
 			<code_completion />

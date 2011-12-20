@@ -1,3 +1,5 @@
+// Example of a simple OpenCL application that performs vector addition
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,18 +17,30 @@ int main(void) {
     const int LIST_SIZE = 1024;
     int *A = (int*)malloc(sizeof(int)*LIST_SIZE);
     int *B = (int*)malloc(sizeof(int)*LIST_SIZE);
+    
+    // Load the kernel source code into the array source_str
+    FILE *fp;
+    char *source_str;
+    size_t source_size;
+    
+    fp = fopen("vector.cl", "r");
+    if (!fp) {
+        
+        fprintf(stderr, "Failed to load kernel.\n");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fp, 0L, SEEK_END);
+    source_size = ftell(fp);
+    fseek(fp, 0L, SEEK_SET);
+    source_str = (char*)malloc(source_size);
+    fread( source_str, 1, source_size, fp);
+    fclose( fp );
+    
+    // Initialize vectors
     for(i = 0; i < LIST_SIZE; i++) {
         A[i] = i;
         B[i] = LIST_SIZE - i;
     }
-
-    // Load the kernel source code into the array source_str
-    char *source_str = \
-"__kernel void vector_add(__global int *A, __global int *B, __global int *C) {"
-"int i = get_global_id(0);"
-"C[i] = A[i] + B[i];}";
-    size_t source_len[1];
-    source_len[0] = strlen(source_str);
 
     // Get platform and device information
     cl_platform_id platform_id = NULL;
@@ -39,9 +53,9 @@ int main(void) {
 
     // Create an OpenCL context
     cl_context context = clCreateContext( NULL, 1, &device_id, NULL, NULL, &ret);
-    if (context == (cl_context)NULL) {
+    if (!context) {
         printf("Failed creating OpenCL context.");
-        exit(0);
+        exit(EXIT_FAILURE);
     }
     // Create a command queue
     cl_command_queue command_queue = clCreateCommandQueue(context, device_id, 0, &ret);
@@ -62,7 +76,7 @@ int main(void) {
 
     // Create a program from the kernel source
     cl_program program = clCreateProgramWithSource(context, 1,
-            (const char **)&source_str, source_len, &ret);
+            (const char **)&source_str, (const size_t *)&source_size, &ret);
 
     // Build the program
     ret = clBuildProgram(program, 1, &device_id, NULL, NULL, NULL);
