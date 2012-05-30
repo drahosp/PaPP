@@ -8,32 +8,49 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-void *function( void *ptr ) {
-	char *message;
-	message = (char *) ptr;
+// struct used for returning data from threads:
+typedef struct {
+	char* message;
+	int retval;
+} ThreadData;
+
+void *function(void *arg) {
+	char *message = arg;
 	printf("Hello from %s \n", message);
-	pthread_exit(0);                        // to return custom value, typecast must be done explicitly: pthread_exit((void*)3);
+
+	// Allocate memory for thread data object and return its address:
+	ThreadData* td = malloc(sizeof(ThreadData));
+	td->message = message;
+	td->retval = message[7] - '0' + 10;
+	return (void*) td;
 }
 
 int main(void) {
 	pthread_t thread1, thread2;
 	char *message1 = "Thread 1";
 	char *message2 = "Thread 2";
-	int  iret1, iret2;
 
-	/* Create independent threads each of which will execute function */
+	// Create independent threads each of which will execute function:
+	pthread_create(&thread1, NULL, &function, (void*) message1);
+	pthread_create(&thread2, NULL, &function, (void*) message2);
 
-	pthread_create( &thread1, NULL, &function, (void*) message1);
-	pthread_create( &thread2, NULL, &function, (void*) message2);
+	ThreadData *ret1, *ret2;
 
-	/* Wait until threads are complete before main continues. Unless we */
-	/* wait we run the risk of executing an exit which will terminate   */
-	/* the process and all threads before the threads have completed.   */
+	// Wait for threads termination:
+	pthread_join(thread1, (void**) &ret1); // casts ret1 to (void*) and assigns thread1's return value to it
+	pthread_join(thread2, (void**) &ret2); // casts ret2 to (void*) and assigns thread2's return value to it
 
-	pthread_join( thread1, (void**)&iret1); // int variable casted to void* was passed to pthread_exit, now we pass address of int variable
-	pthread_join( thread2, (void**)&iret2); // function argument would be int* so that int variable passed by address is filled, we just use void* instead of int here
+	// Main thread continues only after both threads have been terminated
 
-	printf("Thread 1 returns: %d\n",iret1);
-	printf("Thread 2 returns: %d\n",iret2);
+	// print content of structures returned by threads:
+	printf("%s returns: %d\n", ret1->message, ret1->retval);
+	printf("%s returns: %d\n", ret2->message, ret2->retval);
+
+	// Free memory that has been allocated by threads:
+	free(ret1);
+	free(ret2);
+
+	// When the main thread calls exit, it terminates the whole process, which
+	// causes all threads to terminate (even if they haven't finished yet).
 	exit(EXIT_SUCCESS);
 }
