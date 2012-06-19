@@ -1,35 +1,40 @@
 /*
   This example demonstrates how to use pthread_join and how to pass results
-  back from the treads. Threads are explicitly created as joinable
-  Each thread draws one million random numbers between 0 and 1 and adds
-  these together in a variable sum. This is passed back to the joining thread
-  in the pthread_exit call.
+  back from the treads. Threads are explicitly created as joinable. Each
+  thread generates number between 0 and 500000 that is returned back to the
+  main thread.
 */
 
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define NUM_THREADS     4
-#define ITERATIONS 1000000
+#define NUM_THREADS 4
+
+// Using rand() simultaneously in multiple threads leads to undefined behavior !
+pthread_mutex_t randMutex = PTHREAD_MUTEX_INITIALIZER;
 
 /*
-   This is the start routine that all threads execute. It draws 1000000
-   random numbers between 0 and 1 and sums them in result
+   This is the start routine that all threads execute. It generates random
+   number between 0 and 500000, stores it into dynamically allocated variable
+   and returns pointer to memory, where this variable resides.
 */
 void *work(void *t) {
-  double *result;
-  int i, tid;
-  result = malloc(sizeof(double));
-  *result = 0.0;
-  tid = (int)t;   /* Get thread number */
-  for (i=0; i<ITERATIONS; i++) {
-    *result += (double)rand()/RAND_MAX;
-  }
-  /* printf("Thread %d done. Result = %7.2f\n",tid, *result); */
-  pthread_exit((void*) result);  /* Pass the pointer to result back */
-}
+  double *result = malloc(sizeof(double));
+  int tid = (int)t; // get thread number
 
+  // rand() is not thread-safe !!!
+  pthread_mutex_lock(&randMutex);
+
+  // seed to some thread-specific value (use thread id and addresses of local variables):
+  srand(time(0) + (unsigned int)result - (unsigned int)&tid * 5 * (tid+1));
+  *result = ((double)rand() / ((double)RAND_MAX + 1.0)) * 500000;
+
+  pthread_mutex_unlock(&randMutex);
+
+  /* printf("Thread %d done. Result = %7.2f\n",tid, *result); */
+  return (void*) result;  /* Pass the pointer to result back */
+}
 
 int main(int argc, char *argv[]) {
   pthread_t thread[NUM_THREADS];
@@ -61,10 +66,9 @@ int main(int argc, char *argv[]) {
     }
     res = *(double *)status;
     total += res;
-    printf("Joined with thread %d, result = %6.2f\n",i,res);
+    printf("Joined with thread %d, result = %6.2f\n", i, res);
   }
 
-  printf("\n");
-  printf("Program completed, total = %6.2f\n", total);
-  pthread_exit(NULL);
+  printf("\nProgram completed, total = %6.2f\n", total);
+  exit(EXIT_SUCCESS);
 }
