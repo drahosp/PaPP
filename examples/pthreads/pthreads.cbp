@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="POSIX Threads Examples" />
+		<Option title="POSIX Threads" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -66,6 +66,21 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
+			<Target title="locktable">
+				<Option output="dphil_locktable" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="leftie">
+				<Option output="dphil_leftie" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="footman">
+				<Option output="dphil_footman" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
@@ -121,6 +136,18 @@
 		<Unit filename="pt_semaphore.c">
 			<Option compilerVar="CC" />
 			<Option target="semaphore" />
+		</Unit>
+		<Unit filename="dphil_footman.c">
+			<Option compilerVar="CC" />
+			<Option target="footman" />
+		</Unit>
+		<Unit filename="dphil_leftie.c">
+			<Option compilerVar="CC" />
+			<Option target="leftie" />
+		</Unit>
+		<Unit filename="dphil_locktable.c">
+			<Option compilerVar="CC" />
+			<Option target="locktable" />
 		</Unit>
 		<Extensions>
 			<code_completion />

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
-	<Workspace title="Parallel Programming Examples">
-		<Project filename="pthreads/pthreads.cbp" active="1" />
+	<Workspace title="Examples">
+		<Project filename="pthreads/pthreads.cbp" />
 		<Project filename="mpi/mpi.cbp" />
-		<Project filename="opengl/opengl.cbp" />
 		<Project filename="opencl/opencl.cbp" />
 		<Project filename="openmp/openmp.cbp" />
-		<Project filename="philosophers/philosophers.cbp" />
+		<Project filename="opengl/opengl.cbp" active="1" />
 	</Workspace>
 </CodeBlocks_workspace_file>

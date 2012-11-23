@@ -22,7 +22,10 @@ ALL =   pt_basic \
 	pt_join1 \
 	pt_join2 \
 	pt_mutex \
-	pt_semaphore
+	pt_semaphore \
+	dphil_leftie \
+	dphil_locktable \
+	dphil_footman
 
 all:  $(ALL)
 

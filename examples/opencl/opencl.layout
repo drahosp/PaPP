@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="vector" />
-	<File name="cl_vector.c" open="1" top="1" tabpos="0">
-		<Cursor position="584" topLine="71" />
+	<ActiveTarget name="gradient" />
+	<File name="cl_gl_gradient.c" open="0" top="0" tabpos="0">
+		<Cursor position="2833" topLine="0" />
+	</File>
+	<File name="cl_vector.c" open="0" top="0" tabpos="0">
+		<Cursor position="2358" topLine="71" />
 	</File>
 </CodeBlocks_layout_file>

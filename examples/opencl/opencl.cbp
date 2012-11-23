@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="OpenCL Examples" />
+		<Option title="OpenCL" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -24,12 +24,18 @@
 		<Linker>
 			<Add option="-lOpenCL -lFreeGlut -lopengl32 -lglu32" />
 		</Linker>
+		<Unit filename="cl_gl_gradient.c">
+			<Option compilerVar="CC" />
+			<Option target="gradient" />
+		</Unit>
 		<Unit filename="cl_vector.c">
 			<Option compilerVar="CC" />
 			<Option target="vector" />
 		</Unit>
-		<Unit filename="cl_gl_gradient.c">
-			<Option compilerVar="CC" />
+		<Unit filename="gradient.cl">
+			<Option target="gradient" />
+		</Unit>
+		<Unit filename="vector.cl">
 			<Option target="gradient" />
 		</Unit>
 		<Extensions>

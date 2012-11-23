@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="cpi" />
+	<ActiveTarget name="hello" />
+	<File name="mpi_gather.c" open="0" top="0" tabpos="0">
+		<Cursor position="1453" topLine="4" />
+	</File>
+	<File name="mpi_hello.c" open="0" top="0" tabpos="2">
+		<Cursor position="716" topLine="0" />
+	</File>
 </CodeBlocks_layout_file>

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="gradient" />
+	<ActiveTarget name="vbo" />
+	<File name="gl_gradient.c" open="1" top="1" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="gl_transformation.c" open="0" top="0" tabpos="0">
+		<Cursor position="3108" topLine="113" />
+	</File>
+	<File name="gl_vbo.c" open="0" top="0" tabpos="2">
+		<Cursor position="275" topLine="0" />
+	</File>
 </CodeBlocks_layout_file>

@@ -47,15 +47,15 @@ void initCL() {
     cl_device_id device_id = NULL;
     cl_uint ret_num_devices;
     cl_uint ret_num_platforms;
-    
+
     // Load the kernel source code into the array source_str
     FILE *fp;
     char *source_str;
     size_t source_size;
-    
+
     fp = fopen("gradient.cl", "r");
     if (!fp) {
-        
+
         fprintf(stderr, "Failed to load kernel.\n");
         exit(EXIT_FAILURE);
     }
@@ -65,52 +65,52 @@ void initCL() {
     source_str = (char*)malloc(source_size);
     fread( source_str, 1, source_size, fp);
     fclose( fp );
-    
+
     // Get available platforms and devices
     clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
     clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_DEFAULT, 1, &device_id, &ret_num_devices);
-    
+
     // Set platform specific OpenCL contect properties
     cl_context_properties prop[] = CL_CONTEXT_PROP;
-    
+
     // Create an OpenCL context
     context = clCreateContext( prop, 1, &device_id, NULL, NULL, &ret);
     if (!context) {
         printf("Failed creating OpenCL context.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     // Create a command queue
     command_queue = clCreateCommandQueue(context, device_id, 0, &ret);
     if (!command_queue) {
         printf("Failed creating command queue.\n");
-        exit(EXIT_FAILURE);    
+        exit(EXIT_FAILURE);
     }
-    
+
     // Get OpenGL texture memory object
     mem_obj = clCreateFromGLTexture2D(context, CL_MEM_READ_WRITE, GL_TEXTURE_2D, 0,texture, &ret);
     if (!mem_obj) {
         printf("Failed creating memory object from OpenGL texture.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     // Create a program from the kernel source
     program = clCreateProgramWithSource(context, 1, (const char **)&source_str, (const size_t *)&source_size, &ret);
     if (!program) {
         printf("Failed creating OpenCL program.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     // Build the program
     clBuildProgram(program, 1, &device_id, NULL, NULL, NULL);
-    
+
     // Create the OpenCL kernel
     kernel = clCreateKernel(program, "gradient", &ret);
     if (!kernel) {
         printf("Failed creating kernel.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     // Set the arguments of the kernel
     ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&mem_obj);
     if (ret != CL_SUCCESS) {
@@ -124,7 +124,7 @@ void GenerateImageCL() {
     size_t global_work_size[2];
     global_work_size[0] = TEX_SIZE;
     global_work_size[1] = TEX_SIZE;
-    
+
     clEnqueueAcquireGLObjects(command_queue, 1, &mem_obj, 0,0,0);
     ret = clEnqueueNDRangeKernel(command_queue, kernel, 2, NULL, global_work_size, NULL, 0, NULL, NULL);
     if (ret != CL_SUCCESS) {
@@ -135,8 +135,7 @@ void GenerateImageCL() {
     clFlush(command_queue);
 }
 
-void cleanCL()
-{
+void cleanCL() {
     // Clean up
     clFlush(command_queue);
     clFinish(command_queue);
@@ -148,8 +147,7 @@ void cleanCL()
 }
 
 // Initialize OpenGL LoadTexstate
-void initGL()
-{
+void initGL() {
     // Texture setup
     glEnable(GL_TEXTURE_2D);
     glGenTextures( 1, &texture);
@@ -158,13 +156,13 @@ void initGL()
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-    
+
     // Other States
     glClearColor(0,0,0,0);
     gluOrtho2D(-1,1,-1,1);
     glLoadIdentity();
     glColor3f(1,1,1);
-    
+
     // Make Texture
     glBindTexture(GL_TEXTURE_2D, texture);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, TEX_SIZE, TEX_SIZE, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
@@ -197,18 +195,18 @@ int main(int argc, char ** argv) {
     glutInit(&argc, argv);
     glutInitWindowSize(TEX_SIZE, TEX_SIZE);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutCreateWindow("OpenGL Window");
-    
+    glutCreateWindow("OpenGL Window - OpenCL Gradient");
+
     // Set up OpenGL/OpenCL contexts
     initGL();
     initCL();
-    
+
     // Run the control loop
     glutDisplayFunc(display);
     glutMainLoop();
-    
+
     // Clean up
     cleanCL();
-    
+
     return EXIT_SUCCESS;
 }

@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="OpenGL Codebase" />
+		<Option title="OpenGL" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -11,20 +11,44 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
+			<Target title="vbo">
+				<Option output="gl_vbo" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="projection">
+				<Option output="gl_projection" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="transformation">
+				<Option output="gl_transformation" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-g" />
 		</Compiler>
 		<Linker>
-			<Add option="-lFreeGlut -lopengl32 -lglu32" />
+			<Add option="-lglew32 -lFreeGlut -lopengl32 -lglu32" />
 		</Linker>
-		<Unit filename="gl_main.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="gl_gradient.c">
 			<Option compilerVar="CC" />
 			<Option target="gradient" />
+		</Unit>
+		<Unit filename="gl_projection.c">
+			<Option compilerVar="CC" />
+			<Option target="projection" />
+		</Unit>
+		<Unit filename="gl_transformation.c">
+			<Option compilerVar="CC" />
+			<Option target="transformation" />
+		</Unit>
+		<Unit filename="gl_vbo.c">
+			<Option compilerVar="CC" />
+			<Option target="vbo" />
 		</Unit>
 		<Extensions>
 			<code_completion />

@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   int   id, ntasks, source_id, err, i;
   MPI_Status status;
   char msg[80];	      	       /* Message array */
-  
+
   err = MPI_Init(&argc, &argv); /* Initialize MPI */
   if (err != MPI_SUCCESS) {
     printf("MPI_init failed!\n");
@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
   }
 
   err = MPI_Comm_size(MPI_COMM_WORLD, &ntasks);	/* Get nr of tasks */
+  printf("%d", ntasks);
   if (err != MPI_SUCCESS) {
     printf("MPI_Comm_size failed!\n");
     exit(1);
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]) {
       exit(1);
     }
   }
-  
+
   err = MPI_Finalize();	         /* Terminate MPI */
   if (err != MPI_SUCCESS) {
     printf("Error in MPI_Finalize!\n");
