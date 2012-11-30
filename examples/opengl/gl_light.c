@@ -2,7 +2,7 @@
  OpenGL visualization skeleton for displaying bitmap images. Just provide a GenerateImage function.
  Good starting point for all image processing exercises for parallel programming.
 
- Example use of VBO
+ Example use of lighting and materials
 */
 #include <stdio.h>
 #include <stdlib.h>
