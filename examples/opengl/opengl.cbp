@@ -16,6 +16,11 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 			</Target>
+			<Target title="light">
+				<Option output="gl_light" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
 			<Target title="projection">
 				<Option output="gl_projection" prefix_auto="1" extension_auto="1" />
 				<Option type="0" />
@@ -41,6 +46,10 @@
 		<Unit filename="gl_projection.c">
 			<Option compilerVar="CC" />
 			<Option target="projection" />
+		</Unit>
+		<Unit filename="gl_light.c">
+			<Option compilerVar="CC" />
+			<Option target="light" />
 		</Unit>
 		<Unit filename="gl_transformation.c">
 			<Option compilerVar="CC" />
