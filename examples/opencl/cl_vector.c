@@ -32,7 +32,7 @@ int main(void) {
     fseek(fp, 0L, SEEK_END);
     source_size = ftell(fp);
     fseek(fp, 0L, SEEK_SET);
-    source_str = (char*)malloc(source_size);
+    source_str = (char*)calloc(source_size + 1, 1);
     fread( source_str, 1, source_size, fp);
     fclose( fp );
     
@@ -81,14 +81,29 @@ int main(void) {
     // Build the program
     ret = clBuildProgram(program, 1, &device_id, NULL, NULL, NULL);
 
+    // Print kernel compilation errors
+    if (ret != CL_SUCCESS) {
+        size_t length;
+        char buffer[30720];
+        clGetProgramBuildInfo(program, device_id, CL_PROGRAM_BUILD_LOG, sizeof(buffer), buffer, &length);
+        printf("%s\n", buffer);
+        fflush(stdout);
+    }
+
     // Create the OpenCL kernel
     cl_kernel kernel = clCreateKernel(program, "vector_add", &ret);
 
     // Set the arguments of the kernel
     ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&a_mem_obj);
-    ret = clSetKernelArg(kernel, 1, sizeof(cl_mem), (void *)&b_mem_obj);
-    ret = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void *)&c_mem_obj);
+    ret |= clSetKernelArg(kernel, 1, sizeof(cl_mem), (void *)&b_mem_obj);
+    ret |= clSetKernelArg(kernel, 2, sizeof(cl_mem), (void *)&c_mem_obj);
 
+    // Check for errors
+    if (ret != CL_SUCCESS) {
+        printf("Error setting kernel args: %d\n", ret);
+        /* Check CL/cl.h for info about error code */
+    }
+    
     // Execute the OpenCL kernel on the list
     size_t global_item_size = LIST_SIZE; // Process the entire lists
     size_t local_item_size = 64; // Process one item at a time
