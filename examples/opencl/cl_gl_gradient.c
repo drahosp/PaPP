@@ -62,7 +62,7 @@ void initCL() {
     fseek(fp, 0L, SEEK_END);
     source_size = ftell(fp);
     fseek(fp, 0L, SEEK_SET);
-    source_str = (char*)malloc(source_size);
+    source_str = (char*)calloc(source_size + 1, 1);
     fread( source_str, 1, source_size, fp);
     fclose( fp );
 
@@ -96,8 +96,13 @@ void initCL() {
 
     // Create a program from the kernel source
     program = clCreateProgramWithSource(context, 1, (const char **)&source_str, (const size_t *)&source_size, &ret);
-    if (!program) {
-        printf("Failed creating OpenCL program.\n");
+    // Print kernel compilation errors
+    if (ret != CL_SUCCESS) {
+        size_t length;
+        char buffer[30720];
+        clGetProgramBuildInfo(program, device_id, CL_PROGRAM_BUILD_LOG, sizeof(buffer), buffer, &length);
+        printf("%s\n", buffer);
+        fflush(stdout);
         exit(EXIT_FAILURE);
     }
 
