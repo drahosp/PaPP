@@ -7,7 +7,7 @@
 #
 
 CC		= gcc
-CFLAGS	= -O3 -Wall -fopenmp
+CFLAGS	= -O3 -Wall
 UNAME := $(shell uname -s)
 
 ALL =   gl_gradient gl_projection gl_transformation gl_vbo gl_light
