@@ -7,10 +7,10 @@
 #
 
 CC		= gcc
-CFLAGS	= -O3 -Wall
+CFLAGS	= -O3 -Wall -Wno-deprecated
 UNAME := $(shell uname -s)
 
-ALL =   gl_gradient gl_projection gl_transformation gl_vbo gl_light
+ALL =   gl_gradient gl_projection gl_transformation gl_vbo gl_light gl_shader
 
 all:  $(ALL)
 
