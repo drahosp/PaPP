@@ -12,23 +12,28 @@
 				<Option compiler="gcc" />
 			</Target>
 			<Target title="vbo">
-				<Option output="gl_vbo" prefix_auto="1" extension_auto="1" />
-				<Option type="0" />
+				<Option output="gl_vbo" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 			<Target title="light">
-				<Option output="gl_light" prefix_auto="1" extension_auto="1" />
-				<Option type="0" />
+				<Option output="gl_light" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 			<Target title="projection">
-				<Option output="gl_projection" prefix_auto="1" extension_auto="1" />
-				<Option type="0" />
+				<Option output="gl_projection" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 			<Target title="transformation">
-				<Option output="gl_transformation" prefix_auto="1" extension_auto="1" />
-				<Option type="0" />
+				<Option output="gl_transformation" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="shader">
+				<Option output="gl_shader" prefix_auto="0" extension_auto="1" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
@@ -43,13 +48,17 @@
 			<Option compilerVar="CC" />
 			<Option target="gradient" />
 		</Unit>
+		<Unit filename="gl_light.c">
+			<Option compilerVar="CC" />
+			<Option target="light" />
+		</Unit>
 		<Unit filename="gl_projection.c">
 			<Option compilerVar="CC" />
 			<Option target="projection" />
 		</Unit>
-		<Unit filename="gl_light.c">
+		<Unit filename="gl_shader.c">
 			<Option compilerVar="CC" />
-			<Option target="light" />
+			<Option target="shader" />
 		</Unit>
 		<Unit filename="gl_transformation.c">
 			<Option compilerVar="CC" />
