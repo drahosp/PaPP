@@ -68,8 +68,8 @@ void init() {
   fragmentSource = loadFile("simple_fs.glsl");
 
   // Vertex Array Object
-  glGenVertexArrays(1, &vao);
-  glBindVertexArray(vao);
+  //glGenVertexArrays(1, &vao);
+  //glBindVertexArray(vao);
 
   // Create a Vertex Buffer Object and copy the vertex data to it
   glGenBuffers(1, &vbo);
@@ -160,10 +160,12 @@ int main(int argc, char ** argv) {
   glutInit(&argc, argv);
   glutInitWindowSize(SIZE, SIZE);
 #ifdef __APPLE__
+  // Use OpenGL 3.2 with Core context
   glutInitDisplayMode(GLUT_3_2_CORE_PROFILE|GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
 #else
-  glutInitContextVersion(3,2);
-  glutInitContextProfile(GLUT_CORE_PROFILE);
+  // Use OpenGL 2.0
+  glutInitContextVersion(2,0);
+  //glutInitContextProfile(GLUT_CORE_PROFILE);
   glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
 #endif
   glutCreateWindow("OpenGL Window");
