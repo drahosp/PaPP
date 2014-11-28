@@ -38,7 +38,8 @@ GLuint elements[] = {
 };
 
 float t = 0;
-GLuint vbo, vao, ebo, vertexShader, fragmentShader, shaderProgram, status;
+GLuint vao, vbo, ebo;
+GLint vertexShader, fragmentShader, shaderProgram, status;
 
 // Load a text file as string
 char* loadFile(char* filename) {
@@ -158,7 +159,13 @@ int main(int argc, char ** argv) {
   // Init GLUT
   glutInit(&argc, argv);
   glutInitWindowSize(SIZE, SIZE);
+#ifdef __APPLE__
   glutInitDisplayMode(GLUT_3_2_CORE_PROFILE|GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+#elseif
+  glutInitContextVersion(3,2);
+  glutInitContextProfile(GLUT_CORE_PROFILE);
+  glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+#endif
   glutCreateWindow("OpenGL Window");
 
   printf("Supported GLSL version is %s.\n", (char *)glGetString(GL_SHADING_LANGUAGE_VERSION));
